@@ -17,10 +17,25 @@ class Department {
 	}
 }
 
-const accounting = new Department('d1', 'Accounting');
+class ITDepartment extends Department {
+	constructor(id: string, private admins: string[]) {
+		super(id, 'IT');
+	}
 
-accounting.addEmployee('Ahmed');
-accounting.addEmployee('Mahmood');
+	addNewAdmin(admin: string) {
+		this.admins.push(admin);
+	}
 
-accounting.describe();
-accounting.getEmployeesInfo();
+	printAdmins() {
+		console.log(this.admins);
+	}
+}
+
+const it = new ITDepartment('d1', ['Hasibullah']);
+
+it.addEmployee('Ahmed');
+it.addEmployee('Mahmood');
+
+it.describe();
+it.getEmployeesInfo();
+console.log(it);
