@@ -11,7 +11,8 @@ interface Greetable extends Named {
 }
 
 class Person implements Greetable {
-	constructor(public name: string, public email: string, public age: number) {}
+	// `?` means optional property
+	constructor(public name: string, public email: string, public age?: number) {}
 
 	describe(phrase: string): void {
 		console.log(phrase + this.name);
@@ -19,7 +20,7 @@ class Person implements Greetable {
 }
 
 let user1: Greetable;
-user1 = new Person('Hasibullah', 'hasibullah@test.com', 25);
+user1 = new Person('Hasibullah', 'hasibullah@test.com');
 // user1.name = 'Manu';
 user1.describe("Hi-I'm ");
 
